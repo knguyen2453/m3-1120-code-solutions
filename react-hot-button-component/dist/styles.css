@@ -1,0 +1,35 @@
+.purple {
+  background-color: rgb(35, 23, 68);
+  color: white;
+  padding: 15px 32px;
+}
+
+.lightpurple {
+  background-color: mediumslateblue;
+  color: white;
+  padding: 15px 32px;
+}
+
+.red {
+  background-color: red;
+  color: white;
+  padding: 15px 32px;
+}
+
+.orange {
+  background-color: orange;
+  color: black;
+  padding: 15px 32px;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black;
+  padding: 15px 32px;
+}
+
+.white {
+  background-color: white;
+  color: black;
+  padding: 15px 32px;
+}
