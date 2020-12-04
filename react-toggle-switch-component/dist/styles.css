@@ -1,0 +1,21 @@
+.toggle-switch-container {
+  position: relative;
+  border: 2px solid;
+  height: 40px;
+  width: 70px;
+}
+
+.toggle-switch-button-on {
+  position: absolute;
+  right: 0;
+  background-color: green;
+  height: 40px;
+  width: 35px;
+}
+
+.toggle-switch-button-off {
+  position: absolute;
+  background-color: gray;
+  height: 40px;
+  width: 35px;
+}
