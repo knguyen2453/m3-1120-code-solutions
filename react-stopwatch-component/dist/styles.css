@@ -1,0 +1,29 @@
+.stopwatch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secondCircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.counter {
+  font-size: 25px;
+}
+
+.fa-play::before {
+  content: "\f04b";
+  font-size: 25px;
+}
+
+.fa-pause::before {
+  content: "\f04c";
+  font-size: 25px;
+}
