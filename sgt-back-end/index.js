@@ -8,6 +8,8 @@ const db = new pg.Pool({
   connectionString: 'postgres://dev:lfz@localhost/studentGradeTable'
 });
 
+app.use(express.json());
+
 app.get('/api/grades', (req, res, next) => {
 
   const sql = `
@@ -28,14 +30,17 @@ app.get('/api/grades', (req, res, next) => {
     });
 });
 
-app.use(express.json());
-
 app.post('/api/grades', (req, res, next) => {
   const data = req.body;
 
-  if (data.name === '' || data.course === '' || data.score === '' || data.score < 0 || data.score > 100) {
+  if (!data.name || !data.course || !data.score) {
     res.status(400).json({
-      error: 'Invalid or missing information. Please try again.'
+      error: 'Missing information. Please try again.'
+    });
+    return;
+  } else if (data.score < 0 || data.score > 100) {
+    res.status(400).json({
+      error: 'Invalid score. Please try again'
     });
     return;
   }
@@ -64,9 +69,19 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
   const data = req.body;
   const gradeId = parseInt(req.params.gradeId, 10);
 
-  if (!Number.isInteger(gradeId) || gradeId <= 0 || data.name === '' || data.course === '' || data.score === '' || data.score < 0 || data.score > 100) {
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
-      error: 'Invalid ID or missing information. Please try again.'
+      error: 'Invalid ID. Please try again.'
+    });
+    return;
+  } else if (!data.name || !data.course || !data.score) {
+    res.status(400).json({
+      error: 'Missing information. Please try again.'
+    });
+    return;
+  } else if (data.score < 0 || data.score > 100) {
+    res.status(400).json({
+      error: 'Invalid score. Please try again.'
     });
     return;
   }
